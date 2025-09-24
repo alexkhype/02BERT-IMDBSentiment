@@ -1,4 +1,4 @@
-# Análisis de Ventas Históricas de Videojuegos
+# Análisis de Sentimiendo en Reseñas de IMDB
 
 ## Tabla de Contenidos
 - [Descripción](#Descripción)
@@ -11,37 +11,35 @@
 - [Contacto](#Contacto)
 
 ## Descripción
-XXXX Este proyecto analiza un conjunto de datos históricos de ventas de videojuegos para comprender las preferencias de los consumidores, identificar tendencias por plataforma, región y género, y generar recomendaciones para estrategias de mercado en la industria del entretenimiento.
+Este proyecto utiliza modelos de aprendizaje automático para clasificar reseñas positivas y negativas de películas, entrenados con un conjunto de datos IMDB que contiene más de 47,000 reseñas. El objetivo es automatizar la detección de críticas para Film Junky Union, evaluando el rendimiento con la métrica F1.
 
 ## Datos
-Se utilizaron XXX conjuntos de datos principales:  
-- XXXX **games.csv**: Contiene registros de ventas por juego, plataforma, año, y regiones (Norteamérica, Europa, Japón, y resto del mundo).  
-- XXXX **scraping.csv**: Dataset auxiliar para completar datos faltantes.  
-
-Características clave incluyen:  
-- XXXX 16,500 registros históricos.  
-- XXXX Variables: nombre, plataforma, año, género, clasificación ESRB, ventas por región, calificaciones de críticos y usuarios.  
-- XXXX Datos limpios y normalizados para análisis.  
+Se utilizó un conjunto de datos principal:  
+- **games.csv**: DataFrame con 47,331 registros y 17 columnas que incluyen metadatos de películas (titulos, géneros, años), puntuaciones, reseñas y variables numéricas y categóricas, con datos mayormente completos y tipos variados.
 
 ## Análisis
 El enfoque incluyó:  
-- XXXX Análisis exploratorio para identificar tendencias de ventas por región y género.  
-- XXXX Visualizaciones para descubrir patrones.  
-- XXXX Modelado predictivo simple para estimar ventas futuras basado en variables históricas.  
-- XXXX Validación cruzada para evaluar modelos.  
+- Uso de Python con librerías NLP (NLTK, spaCy), machine learning (scikit-learn, LightGBM) y visualización (matplotlib, seaborn).
+- Limpieza y normalización de datos, imputación y eliminación de valores faltantes, y selección de variables relevantes.
+- Análisis exploratorio (EDA) para entender distribución y balance de reseñas positivas/negativas, y tendencias temporales.
+- Implementación de función de preprocesamiento con lematización y eliminación de stopwords; división clara entre conjuntos de entrenamiento y prueba.
+- Entrenamiento y comparación de múltiples modelos: DummyClassifier, regresión logística, Random Forest, LightGBM y BERT embeddings (limitados).
 
 ## Tecnologías y herramientas
-- XXXX Python 3.9  
-- XXXX Pandas, NumPy para manipulación de datos  
-- XXXX Matplotlib, Seaborn para visualización  
-- XXXX Scikit-learn para modelado predictivo  
-- XXXX Jupyter Notebook para desarrollo interactivo  
+- Python 3.9 para desarrollo general y scripting.
+- Pandas, NumPy para manipulación y análisis de datos.
+- Matplotlib, Seaborn para creación de visualizaciones y análisis gráfico.
+- NLTK y spaCy para procesamiento de lenguaje natural y lematización.
+- Scikit-learn y LightGBM para construcción y evaluación de modelos de aprendizaje automático.
+- Transformers y PyTorch para experimentación con modelos de lenguaje profundo (BERT).
+- Jupyter Notebook para desarrollo interactivo y presentación de análisis.
 
 ## Resultados
-- XXXX Los géneros Action y Sports lideran ventas globales.  
-- XXXX Norteamérica y Europa son los mercados con mayor volumen.  
-- XXXX Modelos predictivos lograron un R2 medio de 0.75 en test set.  
-- XXXX Recomendaciones para enfocar nuevos lanzamientos en plataformas con crecimiento positivo.  
+- Regresión logística con NLTK/spaCy y TF-IDF alcanzó F1 de 0.88, siendo rápido y eficiente.
+- LightGBM obtuvo F1 de 0.85 pero con tiempos de predicción más largos.
+- Random Forest alcanzó F1 de 0.83, por debajo del umbral deseado.
+- Modelos con BERT mostraron sobreajuste y bajo desempeño (F1 < 0.65).
+- Regresión logística demostró robustez incluso en reseñas breves; recomendada para producción.
 
 ## Contribuciones
 Bienvenidas sugerencias, correcciones y nuevas visualizaciones. Por favor, abre un issue o pull request para colaborar.
